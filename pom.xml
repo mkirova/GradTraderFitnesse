@@ -87,5 +87,15 @@
             <artifactId>selenium-server</artifactId>
             <version>3.14.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.scottlogic.gradtrader</groupId>
+            <artifactId>grad-trader</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.0</version>
+        </dependency>
     </dependencies>
 </project>
