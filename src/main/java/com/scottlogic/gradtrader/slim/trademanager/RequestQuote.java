@@ -27,7 +27,7 @@ public class RequestQuote {
     private final Supplier<TradeManager> tradeManager;
 
     private Quote quote;
-    private PriceException exception;
+    private Exception exception;
 
     public RequestQuote() {
         this.tradeManager = new TradeManagerProvider();
@@ -83,7 +83,7 @@ public class RequestQuote {
     }
 
     public String Expires() {
-        return asNowIsh(quote.getExpires());
+        return (quote != null) ? asNowIsh(quote.getExpires()) : "";
     }
 
     private String asNowIsh(long then) {
@@ -124,7 +124,12 @@ public class RequestQuote {
             this.quote = this.tradeManager.get().requestQuote(create());
         }
         catch (PriceException pe) {
+            // helpful for business rules
             this.exception = pe;
+        }
+        catch (Exception e) {
+            // an unexpected thing has happened
+            this.exception = e;
         }
     }
 }
