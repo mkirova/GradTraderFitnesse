@@ -83,7 +83,11 @@ public class RequestQuote {
     }
 
     public String Expires() {
+<<<<<<< HEAD
         return (quote != null) ? asNowIsh(quote.getExpires()) : "";
+=======
+        return (quote != null) ?  asNowIsh(quote.getExpires()) :"";
+>>>>>>> bc84211ef1e975c2a32e1499d329f38d96596af9
     }
 
     private String asNowIsh(long then) {
@@ -122,13 +126,16 @@ public class RequestQuote {
         this.exception = null;
         try {
             this.quote = this.tradeManager.get().requestQuote(create());
-        }
+    }
         catch (PriceException pe) {
             // helpful for business rules
             this.exception = pe;
         }
         catch (Exception e) {
+<<<<<<< HEAD
             // an unexpected thing has happened
+=======
+>>>>>>> bc84211ef1e975c2a32e1499d329f38d96596af9
             this.exception = e;
         }
     }

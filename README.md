@@ -21,7 +21,7 @@ Internal Dependencies
 * Selenium/Webdriver for browser automation in UI tests.
 * GradTrader (`testing-fitnesse` branch) system under test.
 
-Running & Installing
+Running and Installing
 ====================
 Cheatsheet
 ----------
@@ -29,9 +29,10 @@ Cheatsheet
 
 Fitnesse
 --------
-* download fitnesse jars
-* import wiki - details to follow
+* download fitnesse jars:
+* http://fitnesse.org/FitNesseDownload
 * java -jar fitnesse-standalone.jar -p 8070
+* import wiki - details to follow
 
 For fitnesse path settings, the following is used for a maven packaged application jar.
 {{{ 
@@ -53,6 +54,9 @@ Business Logic Tests
 --------------------
 You will need to checkout the `testing-fitnesse` branch of GradTrader and install to the local repository.
 
+Deploy the jar to the classpath location that fitnessse expects.
+In the section abbove, we just use the local maven target folder.
+* `mvn package`
 
 UI Tests
 --------
@@ -74,10 +78,10 @@ _Needed for WebDriver._
 
 Download chrome driver:
 
-https://sites.google.com/a/chromium.org/chromedriver/downloads
+[https://sites.google.com/a/chromium.org/chromedriver/downloads]
 
 As per
-https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver ensure:
+[https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver] ensure:
 * The chromedriver binary is in the system path, or
 * The Selenium Server was started with -Dwebdriver.chrome.driver=c:\path\to\your\chromedriver.exe
 

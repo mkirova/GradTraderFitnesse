@@ -1,0 +1,72 @@
+diff --git a/src/main/java/com/scottlogic/gradtrader/poa/PageObject.java b/src/main/java/com/scottlogic/gradtrader/poa/PageObject.java
+index b166abf..22ceb7a 100644
+--- a/src/main/java/com/scottlogic/gradtrader/poa/PageObject.java
++++ b/src/main/java/com/scottlogic/gradtrader/poa/PageObject.java
+@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
+ 
+ public class PageObject {
+-    private final WebDriver driver;
++    protected final WebDriver driver;
+ 
+     public PageObject(WebDriver driver) {
+         this.driver = driver;
+diff --git a/src/main/java/com/scottlogic/gradtrader/slim/scripts/Blotter.java b/src/main/java/com/scottlogic/gradtrader/slim/scripts/Blotter.java
+index 0f19de3..0ba0839 100644
+--- a/src/main/java/com/scottlogic/gradtrader/slim/scripts/Blotter.java
++++ b/src/main/java/com/scottlogic/gradtrader/slim/scripts/Blotter.java
+@@ -1,7 +1,53 @@
+ package com.scottlogic.gradtrader.slim.scripts;
+ 
++import com.scottlogic.gradtrader.poa.client.BlotterElement;
++import com.scottlogic.gradtrader.util.StaticWebDriver;
++
+ public class Blotter {
++    
++    private BlotterElement element;
++
++    public Blotter() {
++        this.element = new BlotterElement(StaticWebDriver.get());
++    }
++
+     public int numberOfTrades() {
+-        return 0;
++        return element.getTradeCount();
++    }
++
++    public String lastTradeID() {
++        return element.getLastTradeID();
++    }
++
++    public String lastTradeTime() {
++        return element.getLastTradeTime();
++    }
++
++    public String lastTradeDate() {
++        return element.getLastTradeDate();
++    }
++
++    public String lastTradeCurrency() {
++        return element.getLastTradeCurrency();
++    }
++
++    public String lastTradeDirection() {
++        return element.getLastTradeDirection();
++    }
++
++    public String lastTradeQuantity() {
++        return element.getLastTradeQuantity();
++    }
++
++    public String lastTradeRate() {
++        return element.getLastTradeRate();
++    }
++
++    public String lastTradePortfolio() {
++        return element.getLastTradePortfolio();
++    }
++
++    public String lastTradeUser() {
++        return element.getLastTradeUser();
+     }
+ }
