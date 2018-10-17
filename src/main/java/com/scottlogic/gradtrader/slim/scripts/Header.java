@@ -10,6 +10,7 @@ public class Header {
     public Header() {
         this.element = new HeaderElement(StaticWebDriver.get());
     }
+
     public String title() {
         return element.getTitle();
     }

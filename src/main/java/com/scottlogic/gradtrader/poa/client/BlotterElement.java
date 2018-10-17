@@ -17,7 +17,7 @@ public class BlotterElement extends PageObject {
     public static final By LastTradePortfolio = By.cssSelector(".blotter-table-body .Grid__cell:nth-child(1) .FlexTable__rowColumn:nth-child(8)");
     public static final By LastTradeUser = By.cssSelector(".blotter-table-body .Grid__cell:nth-child(1) .FlexTable__rowColumn:nth-child(9)");
     int tradeCount = this.driver.findElements(By.cssSelector(".blotter-table-body .Grid__cell")).size();
-    
+
 
     public BlotterElement(WebDriver driver) {
         super(driver);

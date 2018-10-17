@@ -4,7 +4,7 @@ import com.scottlogic.gradtrader.poa.client.BlotterElement;
 import com.scottlogic.gradtrader.util.StaticWebDriver;
 
 public class Blotter {
-    
+
     private BlotterElement element;
 
     public Blotter() {
