@@ -15,7 +15,11 @@ public class Blotter {
         return element.getTradeCount();
     }
 
-    public String lastTradeID() {
+    public boolean hasNumberOfTradesIncreasedBy(int originalCount, int increasedBy) {
+        return element.hasTradeCount(originalCount, increasedBy);
+    }
+
+  public String lastTradeID() {
         return element.getLastTradeID();
     }
 

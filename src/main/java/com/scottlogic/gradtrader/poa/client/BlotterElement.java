@@ -3,7 +3,6 @@ package com.scottlogic.gradtrader.poa.client;
 import com.scottlogic.gradtrader.poa.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-// import com.scottlogic.gradtrader.slim.scripts.Blotter;
 
 public class BlotterElement extends PageObject {
 
@@ -16,7 +15,7 @@ public class BlotterElement extends PageObject {
     public static final By LastTradeRate = By.cssSelector(".blotter-table-body .Grid__cell:nth-child(1) .FlexTable__rowColumn:nth-child(7)");
     public static final By LastTradePortfolio = By.cssSelector(".blotter-table-body .Grid__cell:nth-child(1) .FlexTable__rowColumn:nth-child(8)");
     public static final By LastTradeUser = By.cssSelector(".blotter-table-body .Grid__cell:nth-child(1) .FlexTable__rowColumn:nth-child(9)");
-    int tradeCount = this.driver.findElements(By.cssSelector(".blotter-table-body .Grid__cell")).size();
+    public static final By TradeRow = By.cssSelector(".blotter-table-body .Grid__cell");
 
 
     public BlotterElement(WebDriver driver) {
@@ -24,7 +23,11 @@ public class BlotterElement extends PageObject {
     }
 
     public int getTradeCount() {
-        return tradeCount;
+        return this.driver.findElements(TradeRow).size();
+    }
+
+    public boolean hasTradeCount(int originalCount, int increasedBy) {
+      return hasElementCountIncreasedBy(originalCount, increasedBy, TradeRow);
     }
 
     public String getLastTradeID() {

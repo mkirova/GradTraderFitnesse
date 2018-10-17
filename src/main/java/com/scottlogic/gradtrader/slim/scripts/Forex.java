@@ -43,8 +43,4 @@ public class Forex {
         forexElement.click(name);
     }
 
-    public int count() {
-        return forexElement.count();
-    }
-
 }

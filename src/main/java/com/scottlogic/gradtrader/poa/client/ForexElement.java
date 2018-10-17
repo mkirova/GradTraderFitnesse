@@ -28,19 +28,11 @@ public class ForexElement extends PageObject {
 
   public void click(String name) {
     if (name.equals("SELL")) {
-      click(SellButton);
+      clickWhenAvailable(SellButton);
     }
     if (name.equals("CONFIRM")) {
-      click(ConfirmButton);
+      clickWhenAvailable(ConfirmButton);
     }
   }
 
-  public int count() {
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    return countElements(By.cssSelector(".Grid__cell"));
-  }
 }
