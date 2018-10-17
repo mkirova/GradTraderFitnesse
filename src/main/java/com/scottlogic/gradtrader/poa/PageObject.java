@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PageObject {
-    private final WebDriver driver;
+    protected final WebDriver driver;
 
     public PageObject(WebDriver driver) {
         this.driver = driver;
