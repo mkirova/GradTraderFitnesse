@@ -12,7 +12,7 @@ public class Forex {
     public Forex(String from, String to) {
         this.from = from;
         this.to = to;
-        this.forexElement = new ForexElement(StaticWebDriver.get());
+        this.forexElement = new ForexElement(StaticWebDriver.get(), from +  to);
     }
 
     public String from() {

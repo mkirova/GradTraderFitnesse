@@ -6,33 +6,39 @@ import org.openqa.selenium.WebDriver;
 
 public class ForexElement extends PageObject {
 
-  public static final By SellButton = By.cssSelector(".tile-pair-purchase-button");
-  public static final By OrderInput = By.cssSelector(".tile-pair-quantity-value");
-  public static final By ConfirmButton = By.cssSelector(".tile-confirmation-button");
+  private String rootElementXpath;
 
-  public ForexElement(WebDriver driver) {
+  public ForexElement(WebDriver driver, String rootAttributeId) {
     super(driver);
+    this.rootElementXpath = "//div[@data-tile-id-" + rootAttributeId.toLowerCase() + "]";
   }
 
   public boolean buttonVisible(String buttonName) {
-    return buttonName.equals("SELL") ? isVisible(SellButton) : false;
+    return isVisible(constructButtonXpath(buttonName));
   }
 
+  // TODO: do we need a better convention for identifying inputs?
   public boolean inputVisible(String inputName) {
-    return inputName.equals("order") ? isVisible(OrderInput) : false;
+    return inputName.equals("order") && isVisible(constructOrderInputXpath());
   }
 
   public void enterOrderValue(String value) {
-    setText(OrderInput, value);
+    setText(constructOrderInputXpath(), value);
   }
 
   public void click(String name) {
-    if (name.equals("SELL")) {
-      clickWhenAvailable(SellButton);
-    }
-    if (name.equals("CONFIRM")) {
-      clickWhenAvailable(ConfirmButton);
-    }
+    clickWhenAvailable(constructButtonXpath(name));
   }
 
+  private By constructButtonXpath(String buttonName) {
+    return By.xpath(rootElementXpath + "//button[text()='" + buttonName + "']");
+  }
+
+  private By constructOrderInputXpath() {
+    return By.xpath(rootElementXpath + "//input" + constructXpathClassCheck("tile-pair-quantity-value"));
+  }
+
+  private String constructXpathClassCheck(String className) {
+    return "[contains(concat(' ',normalize-space(@class),' '),' " + className + " ')]";
+  }
 }
