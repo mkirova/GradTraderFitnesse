@@ -15,7 +15,7 @@ public class Blotter {
         return element.getTradeCount();
     }
 
-    public boolean hasNumberOfTradesIncreasedBy(int originalCount, int increasedBy) {
+    public boolean existingNumberOfTradesIncreasedBy(int originalCount, int increasedBy) {
         return element.hasTradeCount(originalCount, increasedBy);
     }
 
